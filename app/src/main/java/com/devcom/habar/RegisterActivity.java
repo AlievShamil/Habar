@@ -8,11 +8,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class RegisterActivity extends AppCompatActivity {
 
     private Button emailLoginBtn, emailRegisterBtn;
     private EditText emailET, passwordET;
     private TextView emailChangeTV;
+
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +29,8 @@ public class RegisterActivity extends AppCompatActivity {
         emailET = findViewById(R.id.email_input);
         passwordET = findViewById(R.id.pass_input);
         emailChangeTV = findViewById(R.id.email_change_tv);
+
+        mAuth = FirebaseAuth.getInstance();
 
         emailRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
